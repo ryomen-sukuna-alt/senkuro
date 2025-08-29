@@ -12,7 +12,6 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         :root {
             --primary: #8a2be2;
             --secondary: #ff6b6b;
@@ -22,13 +21,11 @@
             --gray: #2d2d2d;
             --success: #4caf50;
         }
-
         body {
             background-color: var(--darker);
             color: var(--light);
             overflow-x: hidden;
         }
-
         /* Header Styles */
         header {
             background-color: rgba(10, 10, 10, 0.95);
@@ -44,7 +41,6 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
-
         .logo {
             display: flex;
             align-items: center;
@@ -55,27 +51,22 @@
             text-decoration: none;
             transition: transform 0.3s;
         }
-
         .logo:hover {
             transform: scale(1.05);
         }
-
         .logo span {
             color: var(--secondary);
         }
-
         .nav-container {
             display: flex;
             align-items: center;
             gap: 2rem;
         }
-
         nav ul {
             display: flex;
             list-style: none;
             gap: 1.5rem;
         }
-
         nav ul li a {
             color: var(--light);
             text-decoration: none;
@@ -85,12 +76,10 @@
             transition: all 0.3s ease;
             position: relative;
         }
-
         nav ul li a:hover, nav ul li a.active {
             background-color: var(--primary);
             color: var(--light);
         }
-
         nav ul li a.active::after {
             content: '';
             position: absolute;
@@ -101,13 +90,11 @@
             height: 2px;
             background: var(--secondary);
         }
-
         .user-section {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
-
         .currency {
             display: flex;
             align-items: center;
@@ -118,20 +105,16 @@
             font-size: 0.9rem;
             transition: transform 0.3s;
         }
-
         .currency:hover {
             transform: scale(1.05);
         }
-
         .currency i {
             color: gold;
         }
-
         .auth-buttons {
             display: flex;
             gap: 0.8rem;
         }
-
         .btn {
             padding: 0.5rem 1.2rem;
             border-radius: 20px;
@@ -141,36 +124,30 @@
             border: none;
             font-size: 0.9rem;
         }
-
         .btn-outline {
             background: transparent;
             border: 2px solid var(--primary);
             color: var(--primary);
         }
-
         .btn-outline:hover {
             background: var(--primary);
             color: var(--light);
             transform: translateY(-2px);
         }
-
         .btn-primary {
             background: var(--primary);
             color: var(--light);
         }
-
         .btn-primary:hover {
             background: #7a1ed2;
             transform: translateY(-2px);
             box-shadow: 0 3px 10px rgba(138, 43, 226, 0.4);
         }
-
         .search-container {
             position: relative;
             display: flex;
             align-items: center;
         }
-
         .search-container input {
             padding: 0.5rem 1rem 0.5rem 2.5rem;
             border-radius: 20px;
@@ -181,14 +158,12 @@
             font-size: 0.9rem;
             transition: all 0.3s ease;
         }
-
         .search-container input:focus {
             outline: none;
             border-color: var(--primary);
             width: 220px;
             background: rgba(30, 30, 30, 1);
         }
-
         .search-container i {
             position: absolute;
             left: 0.8rem;
@@ -197,7 +172,6 @@
             color: #777;
             font-size: 0.9rem;
         }
-
         .hamburger {
             display: none;
             font-size: 1.5rem;
@@ -205,11 +179,9 @@
             cursor: pointer;
             transition: transform 0.3s;
         }
-
         .hamburger:hover {
             transform: rotate(90deg);
         }
-
         /* No Results Message */
         .no-results {
             text-align: center;
@@ -217,34 +189,27 @@
             color: #aaa;
             font-size: 1.2rem;
         }
-
         /* Main Content */
         .main-content {
             margin-top: 80px;
             padding: 2rem 5%;
         }
-
         .section {
             display: none;
         }
-
         .section.active {
             display: block;
         }
-
         .section-title {
             margin-bottom: 2rem;
         }
-
         .section-title h2 {
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
-
         .section-title p {
             color: #aaa;
         }
-
         /* Hero Section */
         .hero {
             height: 80vh;
@@ -258,11 +223,9 @@
             border-radius: 15px;
             margin-bottom: 2rem;
         }
-
         .hero-content {
             max-width: 800px;
         }
-
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
@@ -271,21 +234,18 @@
             -webkit-text-fill-color: transparent;
             line-height: 1.2;
         }
-
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             color: #ccc;
             line-height: 1.6;
         }
-
         .hero-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
-
         /* Features Grid */
         .features-grid {
             display: grid;
@@ -293,7 +253,6 @@
             gap: 1.5rem;
             margin-bottom: 3rem;
         }
-
         .feature-card {
             background: rgba(30, 30, 30, 0.7);
             border-radius: 15px;
@@ -302,36 +261,30 @@
             border: 1px solid rgba(138, 43, 226, 0.2);
             cursor: pointer;
         }
-
         .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
             border-color: var(--primary);
         }
-
         .feature-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
             color: var(--primary);
         }
-
         .feature-card h3 {
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
-
         .feature-card p {
             color: #aaa;
             font-size: 0.9rem;
         }
-
         /* Content Grid */
         .content-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 1.5rem;
         }
-
         .content-card {
             border-radius: 10px;
             overflow: hidden;
@@ -341,17 +294,14 @@
             transition: transform 0.3s;
             cursor: pointer;
         }
-
         .content-card:hover {
             transform: scale(1.03);
         }
-
         .content-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         .content-info {
             position: absolute;
             bottom: 0;
@@ -360,24 +310,20 @@
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
             padding: 0.8rem;
         }
-
         .content-info h4 {
             font-size: 1rem;
             margin-bottom: 0.3rem;
         }
-
         .content-info p {
             color: #aaa;
             font-size: 0.8rem;
         }
-
         /* Shop Styles */
         .shop-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1.5rem;
         }
-
         .shop-item {
             background: rgba(30, 30, 30, 0.7);
             border-radius: 10px;
@@ -385,26 +331,21 @@
             border: 1px solid rgba(138, 43, 226, 0.2);
             transition: transform 0.3s;
         }
-
         .shop-item:hover {
             transform: translateY(-5px);
             border-color: var(--primary);
         }
-
         .shop-img {
             width: 100%;
             height: 150px;
             object-fit: cover;
         }
-
         .shop-info {
             padding: 1rem;
         }
-
         .shop-info h4 {
             margin-bottom: 0.5rem;
         }
-
         .shop-price {
             display: flex;
             align-items: center;
@@ -413,11 +354,9 @@
             font-weight: 600;
             margin-bottom: 0.8rem;
         }
-
         .shop-price i {
             color: gold;
         }
-
         .shop-btn {
             width: 100%;
             padding: 0.5rem;
@@ -428,35 +367,29 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-
         .shop-btn:hover {
             background: #7a1ed2;
         }
-
         .shop-btn:disabled {
             background: #555;
             cursor: not-allowed;
         }
-
         /* Quests */
         .quests-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
-
         .quest-card {
             background: rgba(30, 30, 30, 0.7);
             border-radius: 10px;
             padding: 1.5rem;
             border: 1px solid rgba(138, 43, 226, 0.2);
         }
-
         .quest-card h4 {
             margin-bottom: 0.5rem;
             color: var(--primary);
         }
-
         .quest-reward {
             display: flex;
             align-items: center;
@@ -464,7 +397,6 @@
             color: gold;
             margin: 0.8rem 0;
         }
-
         .quest-btn {
             padding: 0.5rem 1rem;
             background: var(--success);
@@ -473,12 +405,10 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
         .quest-btn:disabled {
             background: #555;
             cursor: not-allowed;
         }
-
         /* Profile */
         .profile-container {
             display: flex;
@@ -488,7 +418,6 @@
             max-width: 800px;
             margin: 0 auto;
         }
-
         .profile-header {
             display: flex;
             flex-direction: column;
@@ -496,11 +425,9 @@
             gap: 1rem;
             width: 100%;
         }
-
         .avatar-container {
             position: relative;
         }
-
         .profile-avatar {
             width: 150px;
             height: 150px;
@@ -508,7 +435,6 @@
             object-fit: cover;
             border: 3px solid var(--primary);
         }
-
         .edit-avatar {
             position: absolute;
             bottom: 10px;
@@ -524,37 +450,30 @@
             align-items: center;
             justify-content: center;
         }
-
         .profile-info {
             text-align: center;
         }
-
         .profile-info h2 {
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
-
         .profile-stats {
             display: flex;
             gap: 2rem;
             margin-top: 1rem;
         }
-
         .stat-item {
             text-align: center;
         }
-
         .stat-value {
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--primary);
         }
-
         .stat-label {
             color: #aaa;
             font-size: 0.9rem;
         }
-
         .profile-form {
             background: rgba(30, 30, 30, 0.7);
             border-radius: 15px;
@@ -562,17 +481,14 @@
             width: 100%;
             border: 1px solid rgba(138, 43, 226, 0.2);
         }
-
         .form-group {
             margin-bottom: 1.5rem;
         }
-
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             color: #aaa;
         }
-
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 0.8rem;
@@ -582,17 +498,14 @@
             color: var(--light);
             font-size: 1rem;
         }
-
         .form-group textarea {
             height: 100px;
             resize: vertical;
         }
-
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
         }
-
         .save-btn {
             width: 100%;
             padding: 1rem;
@@ -605,11 +518,9 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-
         .save-btn:hover {
             background: #7a1ed2;
         }
-
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -617,13 +528,11 @@
             border-top: 1px solid rgba(138, 43, 226, 0.2);
             margin-top: 3rem;
         }
-
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
-
         .footer-column h3 {
             font-size: 1.3rem;
             margin-bottom: 1.5rem;
@@ -631,7 +540,6 @@
             position: relative;
             padding-bottom: 0.5rem;
         }
-
         .footer-column h3::after {
             content: '';
             position: absolute;
@@ -641,31 +549,25 @@
             height: 2px;
             background: var(--primary);
         }
-
         .footer-column ul {
             list-style: none;
         }
-
         .footer-column ul li {
             margin-bottom: 0.8rem;
         }
-
         .footer-column ul li a {
             color: #aaa;
             text-decoration: none;
             transition: color 0.3s;
         }
-
         .footer-column ul li a:hover {
             color: var(--primary);
         }
-
         .social-links {
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
         }
-
         .social-links a {
             display: flex;
             align-items: center;
@@ -677,12 +579,10 @@
             color: var(--light);
             transition: all 0.3s;
         }
-
         .social-links a:hover {
             background: var(--primary);
             transform: translateY(-3px);
         }
-
         .copyright {
             text-align: center;
             padding-top: 3rem;
@@ -690,14 +590,12 @@
             border-top: 1px solid var(--gray);
             margin-top: 2rem;
         }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             header {
                 flex-wrap: wrap;
                 padding: 0.8rem 3%;
             }
-
             .nav-container {
                 display: none;
                 width: 100%;
@@ -705,121 +603,96 @@
                 align-items: center;
                 padding: 1rem 0;
             }
-
             .nav-container.active {
                 display: flex;
             }
-
             nav ul {
                 flex-direction: column;
                 align-items: center;
                 gap: 1rem;
             }
-
             nav ul li a {
                 padding: 0.4rem 1rem;
                 font-size: 1rem;
             }
-
             .user-section {
                 width: 100%;
                 justify-content: space-between;
                 flex-wrap: wrap;
                 gap: 0.5rem;
             }
-
             .search-container {
                 width: 100%;
                 margin: 0.5rem 0;
             }
-
             .search-container input {
                 width: 100%;
             }
-
             .search-container input:focus {
                 width: 100%;
             }
-
             .auth-buttons {
                 justify-content: center;
                 width: 100%;
                 gap: 0.5rem;
             }
-
             .hamburger {
                 display: block;
             }
-
             .hero h1 {
                 font-size: 2rem;
             }
-
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-
             .btn {
                 width: 100%;
                 max-width: 250px;
             }
-
             .content-grid, .shop-grid {
                 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             }
-
             .profile-stats {
                 flex-wrap: wrap;
                 gap: 1rem;
             }
-
             .stat-item {
                 flex: 1 1 100px;
             }
         }
-
         @media (max-width: 480px) {
             .logo {
                 font-size: 1.5rem;
             }
-
             .search-container input {
                 font-size: 0.8rem;
                 padding: 0.4rem 0.8rem 0.4rem 2rem;
             }
-
             .btn {
                 font-size: 0.8rem;
                 padding: 0.4rem 1rem;
             }
-
             .currency {
                 font-size: 0.8rem;
                 padding: 0.4rem 0.8rem;
             }
-
             .features-grid {
                 grid-template-columns: 1fr;
             }
-
             .content-grid, .shop-grid {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
-
             .quests-grid {
                 grid-template-columns: 1fr;
             }
-
             .profile-avatar {
                 width: 120px;
                 height: 120px;
             }
-
             .profile-info h2 {
                 font-size: 1.5rem;
             }
-
             .stat-value {
                 font-size: 1.2rem;
             }
@@ -860,7 +733,6 @@
             </div>
         </div>
     </header>
-
     <!-- Main Content -->
     <div class="main-content">
         <!-- Home Section -->
@@ -875,7 +747,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="section-title">
                 <h2>Почему выбирают Senkuro?</h2>
                 <p>Наша платформа предлагает всё, что нужно для погружения в мир аниме и манги</p>
@@ -910,7 +781,6 @@
                     <p>Выполняйте задания, чтобы заработать валюту для покупок в магазине.</p>
                 </div>
             </div>
-
             <div class="section-title">
                 <h2>Популярное на этой неделе</h2>
                 <p>Откройте для себя, что смотрят и читают другие фанаты прямо сейчас</p>
@@ -946,7 +816,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Anime Section -->
         <section id="anime" class="section">
             <div class="section-title">
@@ -955,7 +824,6 @@
             </div>
             <div class="content-grid" id="animeGrid"></div>
         </section>
-
         <!-- Manga Section -->
         <section id="manga" class="section">
             <div class="section-title">
@@ -964,7 +832,6 @@
             </div>
             <div class="content-grid" id="mangaGrid"></div>
         </section>
-
         <!-- Community Section -->
         <section id="community" class="section">
             <div class="section-title">
@@ -1002,7 +869,6 @@
                 </div>
             </div>
         </section>
-
         <!-- News Section -->
         <section id="news" class="section">
             <div class="section-title">
@@ -1040,7 +906,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Shop Section -->
         <section id="shop" class="section">
             <div class="section-title">
@@ -1049,7 +914,6 @@
             </div>
             <div class="shop-grid" id="shopGrid"></div>
         </section>
-
         <!-- Quests Section -->
         <section id="quests" class="section">
             <div class="section-title">
@@ -1095,7 +959,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Profile Section -->
         <section id="profile" class="section">
             <div class="profile-container">
@@ -1125,7 +988,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="profile-form">
                     <h3>Редактировать профиль</h3>
                     <div class="form-group">
@@ -1156,7 +1018,6 @@
             </div>
         </section>
     </div>
-
     <!-- Login Modal -->
     <div id="loginModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center;">
         <div class="modal-content" style="background-color: var(--dark); border-radius: 15px; width: 90%; max-width: 400px; padding: 2rem; position: relative; border: 1px solid var(--primary);">
@@ -1178,7 +1039,6 @@
             </div>
         </div>
     </div>
-
     <!-- Signup Modal -->
     <div id="signupModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center;">
         <div class="modal-content" style="background-color: var(--dark); border-radius: 15px; width: 90%; max-width: 400px; padding: 2rem; position: relative; border: 1px solid var(--primary);">
@@ -1208,7 +1068,6 @@
             </div>
         </div>
     </div>
-
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -1216,10 +1075,10 @@
                 <h3>Senkuro</h3>
                 <p>Ваш конечный пункт назначения для аниме и манги. Открывайте, отслеживайте и общайтесь с единомышленниками.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="https://t.me/senkuro" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="https://discord.com/invite/jJPRPzkqhF" title="Discord"><i class="fab fa-discord"></i></a>
+                    <a href="https://boosty.to/senkuro" title="Boosty"><i class="fas fa-donate"></i></a>
+                    <a href="https://www.twitch.tv/senkurosama" title="Twitch"><i class="fab fa-twitch"></i></a>
                 </div>
             </div>
             <div class="footer-column">
@@ -1257,8 +1116,8 @@
             <p>&copy; 2023 Senkuro. Все права защищены. Это демонстрационный сайт в образовательных целях.</p>
         </div>
     </footer>
-
     <script>
+        // Данные для контента
         // Данные для контента
         const animeData = [
             { title: "Атака титанов", genre: "Экшен, Драма", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Атака+титанов" },
@@ -1270,7 +1129,6 @@
             { title: "Клинок, рассекающий демонов", genre: "Экшен, Сверхъестественное", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Клинок+демонов" },
             { title: "Человек-бензопила", genre: "Экшен, Комедия", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Человек+бензопила" }
         ];
-
         const mangaData = [
             { title: "Берсерк", genre: "Темное фэнтези, Сэйнэн", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Берсерк" },
             { title: "Винланд Сага", genre: "Историческое, Сэйнэн", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Винланд+Сага" },
@@ -1281,14 +1139,12 @@
             { title: "Атака титанов", genre: "Экшен, Драма", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Атака+титанов" },
             { title: "Демон Slayer", genre: "Экшен, Сверхъестественное", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Демон+Slayer" }
         ];
-
         const newsData = [
             { title: "Новый сезон атаки титанов", description: "Анонсирован финальный сезон", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Новость+1" },
             { title: "Фестиваль аниме 2023", description: "Даты и участники мероприятия", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Новость+2" },
             { title: "Новая манга от Хаяо Миядзаки", description: "Анонсирован новый проект", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Новость+3" },
             { title: "Студия Bones получает награду", description: "Признание за выдающийся вклад", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Новость+4" }
         ];
-
         const shopItems = [
             { id: 1, name: "Аватар Наруто", price: 150, image: "https://placehold.co/200x150/1a1a1a/8a2be2?text=Аватар+Наруто" },
             { id: 2, name: "Обои Атака Титанов", price: 200, image: "https://placehold.co/200x150/1a1a1a/8a2be2?text=Обои+Атака" },
@@ -1299,7 +1155,6 @@
             { id: 7, name: "Обои Клинок Демонов", price: 180, image: "https://placehold.co/200x150/1a1a1a/8a2be2?text=Обои+Клинок" },
             { id: 8, name: "Рамка Человек Бензопила", price: 90, image: "https://placehold.co/200x150/1a1a1a/8a2be2?text=Рамка+Бензопила" }
         ];
-
         // Переменные состояния
         let currentSection = 'home';
         let userCurrency = 0;
@@ -1314,7 +1169,39 @@
             avatar: "https://placehold.co/150x150/1a1a1a/8a2be2?text=Аватар"
         };
         let isLoggedIn = false;
-
+        // Функции для работы с localStorage
+        function saveToStorage() {
+            try {
+                localStorage.setItem('userProfile', JSON.stringify(userProfile));
+                localStorage.setItem('userCurrency', userCurrency.toString());
+                localStorage.setItem('userExp', userExp.toString());
+                localStorage.setItem('userLevel', userLevel.toString());
+                localStorage.setItem('completedQuests', JSON.stringify(completedQuests));
+                localStorage.setItem('isLoggedIn', isLoggedIn.toString());
+            } catch (e) {
+                alert('Ошибка при сохранении данных. Проверьте настройки браузера (возможно, localStorage заблокирован).');
+                console.error('Storage save error:', e);
+            }
+        }
+        function loadFromStorage() {
+            try {
+                const storedProfile = localStorage.getItem('userProfile');
+                if (storedProfile) userProfile = JSON.parse(storedProfile);
+                const storedCurrency = localStorage.getItem('userCurrency');
+                if (storedCurrency) userCurrency = parseInt(storedCurrency, 10);
+                const storedExp = localStorage.getItem('userExp');
+                if (storedExp) userExp = parseInt(storedExp, 10);
+                const storedLevel = localStorage.getItem('userLevel');
+                if (storedLevel) userLevel = parseInt(storedLevel, 10);
+                const storedQuests = localStorage.getItem('completedQuests');
+                if (storedQuests) completedQuests = JSON.parse(storedQuests);
+                const storedLoggedIn = localStorage.getItem('isLoggedIn');
+                if (storedLoggedIn) isLoggedIn = storedLoggedIn === 'true';
+            } catch (e) {
+                alert('Ошибка при загрузке данных. Проверьте настройки браузера.');
+                console.error('Storage load error:', e);
+            }
+        }
         // Функции навигации
         function showSection(sectionId) {
             document.querySelectorAll('.section').forEach(section => {
@@ -1326,7 +1213,7 @@
             });
             const links = document.querySelectorAll('nav ul li a');
             for (let link of links) {
-                if (link.textContent.toLowerCase() === sectionId.toLowerCase() || 
+                if (link.textContent.toLowerCase() === sectionId.toLowerCase() ||
                     (sectionId === 'home' && link.textContent === 'Главная') ||
                     (sectionId === 'quests' && link.textContent === 'Квесты') ||
                     (sectionId === 'profile' && link.textContent === 'Профиль')) {
@@ -1354,11 +1241,9 @@
             document.getElementById('searchInput').value = '';
             searchContent();
         }
-
         function toggleNav() {
             document.querySelector('.nav-container').classList.toggle('active');
         }
-
         // Функции для заполнения контента
         function populateAnimeGrid(filteredData = animeData) {
             const grid = document.getElementById('animeGrid');
@@ -1380,7 +1265,6 @@
                 grid.appendChild(contentCard);
             });
         }
-
         function populateMangaGrid(filteredData = mangaData) {
             const grid = document.getElementById('mangaGrid');
             grid.innerHTML = '';
@@ -1401,7 +1285,6 @@
                 grid.appendChild(contentCard);
             });
         }
-
         function populateNewsGrid(filteredData = newsData) {
             const grid = document.getElementById('newsGrid');
             grid.innerHTML = '';
@@ -1422,7 +1305,6 @@
                 grid.appendChild(contentCard);
             });
         }
-
         function populateShopGrid() {
             const grid = document.getElementById('shopGrid');
             grid.innerHTML = '';
@@ -1443,7 +1325,6 @@
                 grid.appendChild(shopItem);
             });
         }
-
         function searchContent() {
             const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
             if (currentSection === 'anime') {
@@ -1451,8 +1332,8 @@
                     populateAnimeGrid();
                     return;
                 }
-                const filteredAnime = animeData.filter(item => 
-                    item.title.toLowerCase().includes(searchTerm) || 
+                const filteredAnime = animeData.filter(item =>
+                    item.title.toLowerCase().includes(searchTerm) ||
                     item.genre.toLowerCase().includes(searchTerm)
                 );
                 populateAnimeGrid(filteredAnime);
@@ -1462,8 +1343,8 @@
                     populateMangaGrid();
                     return;
                 }
-                const filteredManga = mangaData.filter(item => 
-                    item.title.toLowerCase().includes(searchTerm) || 
+                const filteredManga = mangaData.filter(item =>
+                    item.title.toLowerCase().includes(searchTerm) ||
                     item.genre.toLowerCase().includes(searchTerm)
                 );
                 populateMangaGrid(filteredManga);
@@ -1473,8 +1354,8 @@
                     populateNewsGrid();
                     return;
                 }
-                const filteredNews = newsData.filter(item => 
-                    item.title.toLowerCase().includes(searchTerm) || 
+                const filteredNews = newsData.filter(item =>
+                    item.title.toLowerCase().includes(searchTerm) ||
                     item.description.toLowerCase().includes(searchTerm)
                 );
                 populateNewsGrid(filteredNews);
@@ -1484,14 +1365,13 @@
                     populateHomeGrid();
                     return;
                 }
-                const filteredHome = animeData.filter(item => 
-                    item.title.toLowerCase().includes(searchTerm) || 
+                const filteredHome = animeData.filter(item =>
+                    item.title.toLowerCase().includes(searchTerm) ||
                     item.genre.toLowerCase().includes(searchTerm)
                 ).slice(0, 4);
                 populateHomeGrid(filteredHome);
             }
         }
-
         function populateHomeGrid(filteredData = animeData.slice(0, 4)) {
             const grid = document.getElementById('homeGrid');
             grid.innerHTML = '';
@@ -1512,51 +1392,42 @@
                 grid.appendChild(contentCard);
             });
         }
-
         function openLoginModal() {
             document.getElementById('loginModal').style.display = 'flex';
         }
-
         function openSignupModal() {
             document.getElementById('signupModal').style.display = 'flex';
         }
-
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
         }
-
         function switchToSignup() {
             closeModal('loginModal');
             openSignupModal();
         }
-
         function switchToLogin() {
             closeModal('signupModal');
             openLoginModal();
         }
-
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = 'none';
             }
         }
-
         function getStarted() {
             alert('Добро пожаловать в Senkuro!');
         }
-
         function buyItem(itemId, price) {
             if (userCurrency >= price) {
                 userCurrency -= price;
                 document.getElementById('userCurrency').textContent = userCurrency;
-                updateProfileDisplay();
-                alert(`Поздравляем! Вы купили предмет за ${price} монет.`);
+                saveToStorage();
                 populateShopGrid();
+                alert(`Поздравляем! Вы купили предмет за ${price} монет.`);
             } else {
                 alert('Недостаточно монет для покупки!');
             }
         }
-
         function completeQuest(questId, reward) {
             if (!completedQuests[questId]) {
                 userCurrency += reward;
@@ -1570,13 +1441,13 @@
                 completedQuests[questId] = true;
                 document.getElementById(`quest${questId + 1}`).disabled = true;
                 document.getElementById(`quest${questId + 1}`).textContent = "Выполнено";
+                saveToStorage();
                 updateProfileDisplay();
                 alert(`Поздравляем! Вы получили ${reward} монет и ${reward} опыта.`);
             } else {
                 alert('Этот квест уже выполнен!');
             }
         }
-
         function updateProfileDisplay() {
             document.getElementById('profileName').textContent = userProfile.name;
             document.getElementById('profileLevel').textContent = userLevel;
@@ -1591,14 +1462,18 @@
                 document.getElementById('authButtons').innerHTML = `
                     <button class="btn btn-outline" onclick="logout()">Выйти</button>
                 `;
+            } else {
+                document.getElementById('authButtons').innerHTML = `
+                    <button class="btn btn-outline" onclick="openLoginModal()">Войти</button>
+                    <button class="btn btn-primary" onclick="openSignupModal()">Регистрация</button>
+                `;
             }
         }
-
         function changeAvatar() {
             const fileInput = document.getElementById('avatarInput');
             const file = fileInput.files[0];
             if (file) {
-                if (file.size > 5 * 1024 * 1024) { // Limit to 5MB
+                if (file.size > 5 * 1024 * 1024) {
                     alert('Файл слишком большой! Пожалуйста, выберите изображение размером менее 5 МБ.');
                     return;
                 }
@@ -1610,6 +1485,7 @@
                 reader.onload = function(e) {
                     userProfile.avatar = e.target.result;
                     document.getElementById('profileAvatar').src = userProfile.avatar;
+                    saveToStorage();
                     alert('Аватар успешно изменен!');
                 };
                 reader.onerror = function() {
@@ -1620,46 +1496,67 @@
                 alert('Пожалуйста, выберите изображение для загрузки.');
             }
         }
-
         function saveProfile() {
             userProfile.name = document.getElementById('editName').value || "Гость";
             userProfile.email = document.getElementById('editEmail').value;
             userProfile.bio = document.getElementById('editBio').value;
             userProfile.favorite = document.getElementById('editFavorite').value;
+            saveToStorage();
             updateProfileDisplay();
             alert('Профиль успешно обновлен!');
         }
-
         function logout() {
             isLoggedIn = false;
-            userProfile = {
-                name: "Гость",
-                email: "",
-                bio: "",
-                favorite: "",
-                avatar: "https://placehold.co/150x150/1a1a1a/8a2be2?text=Аватар"
-            };
-            userCurrency = 0;
-            userExp = 0;
-            userLevel = 1;
-            completedQuests = [false, false, false, false];
-            document.getElementById('userCurrency').textContent = userCurrency;
-            document.getElementById('authButtons').innerHTML = `
-                <button class="btn btn-outline" onclick="openLoginModal()">Войти</button>
-                <button class="btn btn-primary" onclick="openSignupModal()">Регистрация</button>
-            `;
+            saveToStorage();
             updateProfileDisplay();
             showSection('home');
             alert('Вы вышли из аккаунта');
         }
-
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('loginEmail').value;
             if (email) {
-                userProfile.name = email.split('@')[0];
-                userProfile.email = email;
+                // Load stored data to check if profile exists
+                const storedProfile = localStorage.getItem('userProfile');
+                if (storedProfile) {
+                    const parsedProfile = JSON.parse(storedProfile);
+                    if (parsedProfile.email === email) {
+                        // Restore full profile and user data
+                        userProfile = parsedProfile;
+                        userCurrency = parseInt(localStorage.getItem('userCurrency') || '0', 10);
+                        userExp = parseInt(localStorage.getItem('userExp') || '0', 10);
+                        userLevel = parseInt(localStorage.getItem('userLevel') || '1', 10);
+                        completedQuests = JSON.parse(localStorage.getItem('completedQuests') || '[false, false, false, false]');
+                    } else {
+                        // If email doesn't match, initialize with new user data
+                        userProfile = {
+                            name: email.split('@')[0],
+                            email: email,
+                            bio: "",
+                            favorite: "",
+                            avatar: "https://placehold.co/150x150/1a1a1a/8a2be2?text=Аватар"
+                        };
+                        userCurrency = 0;
+                        userExp = 0;
+                        userLevel = 1;
+                        completedQuests = [false, false, false, false];
+                    }
+                } else {
+                    // No stored profile, create new
+                    userProfile = {
+                        name: email.split('@')[0],
+                        email: email,
+                        bio: "",
+                        favorite: "",
+                        avatar: "https://placehold.co/150x150/1a1a1a/8a2be2?text=Аватар"
+                    };
+                    userCurrency = 0;
+                    userExp = 0;
+                    userLevel = 1;
+                    completedQuests = [false, false, false, false];
+                }
                 isLoggedIn = true;
+                saveToStorage();
                 updateProfileDisplay();
                 closeModal('loginModal');
                 alert(`Успешный вход как ${email}`);
@@ -1667,7 +1564,6 @@
                 alert('Пожалуйста, заполните все поля');
             }
         });
-
         document.getElementById('signupForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('signupName').value;
@@ -1679,9 +1575,19 @@
                 return;
             }
             if (name && email && password) {
-                userProfile.name = name;
-                userProfile.email = email;
+                userProfile = {
+                    name: name,
+                    email: email,
+                    bio: "",
+                    favorite: "",
+                    avatar: "https://placehold.co/150x150/1a1a1a/8a2be2?text=Аватар"
+                };
+                userCurrency = 0;
+                userExp = 0;
+                userLevel = 1;
+                completedQuests = [false, false, false, false];
                 isLoggedIn = true;
+                saveToStorage();
                 updateProfileDisplay();
                 closeModal('signupModal');
                 alert(`Успешная регистрация для ${name} (${email})`);
@@ -1689,14 +1595,24 @@
                 alert('Пожалуйста, заполните все поля');
             }
         });
-
         document.addEventListener('DOMContentLoaded', function() {
+            loadFromStorage();
+            updateProfileDisplay();
             populateAnimeGrid();
             populateMangaGrid();
             populateNewsGrid();
             populateShopGrid();
             populateHomeGrid();
-            updateProfileDisplay();
+            // Обновляем кнопки квестов на основе загруженных данных
+            completedQuests.forEach((completed, index) => {
+                if (completed) {
+                    const questBtn = document.getElementById(`quest${index + 1}`);
+                    if (questBtn) {
+                        questBtn.disabled = true;
+                        questBtn.textContent = "Выполнено";
+                    }
+                }
+            });
         });
     </script>
 </body>

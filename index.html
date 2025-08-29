@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senkuro - Аниме и манга сообщество</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #8a2be2;
+            --secondary: #ff6b6b;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #f8f9fa;
+            --gray: #2d2d2d;
+            --success: #4caf50;
+        }
+
+        body {
+            background-color: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--light);
+            background-color: var(--primary);
+        }
+
+        .user-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .currency {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(138, 43, 226, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+        }
+
+        .currency i {
+            color: gold;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        .btn-primary:hover {
+            background: #7a1ed2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+        }
+
+        .search-container {
+            position: relative;
+            margin: 0 1rem;
+        }
+
+        .search-container input {
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+            border-radius: 30px;
+            border: 1px solid var(--gray);
+            background: rgba(30, 30, 30, 0.7);
+            color: var(--light);
+            width: 200px;
+            transition: width 0.3s;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: var(--primary);
+            width: 250px;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            padding: 2rem 5%;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section-title {
+            margin-bottom: 2rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: #aaa;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.9)), url('https://placehold.co/1920x1080/1a1a1a/8a2be2?text=Аниме+Сообщество') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .content-card {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .content-card:hover {
+            transform: scale(1.03);
+        }
+
+        .content-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 0.8rem;
+        }
+
+        .content-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .content-info p {
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+
+        /* Shop Styles */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .shop-item {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .shop-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .shop-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .shop-info {
+            padding: 1rem;
+        }
+
+        .shop-info h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .shop-price {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: gold;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .shop-price i {
+            color: gold;
+        }
+
+        .shop-btn {
+            width: 100%;
+            padding: 0.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .shop-btn:hover {
+            background: #7a1ed2;
+        }
+
+        .shop-btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+        }
+
+        /* Quests */
+        .quests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quest-card {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        .quest-card h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .quest-reward {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: gold;
+            margin: 0.8rem 0;
+        }
+
+        .quest-btn {
+            padding: 0.5rem 1rem;
+            background: var(--success);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(138, 43, 226, 0.2);
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gray);
+            color: var(--light);
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            color: #777;
+            border-top: 1px solid var(--gray);
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            nav ul {
+                margin: 1rem 0;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li a {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .search-container {
+                margin: 1rem 0;
+            }
+
+            .search-container input {
+                width: 150px;
+            }
+
+            .search-container input:focus {
+                width: 180px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .content-grid, .shop-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-grid, .shop-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .quests-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo" onclick="showSection('home')">SENKURO<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('home')" class="active">Главная</a></li>
+                <li><a href="#" onclick="showSection('anime')">Аниме</a></li>
+                <li><a href="#" onclick="showSection('manga')">Манга</a></li>
+                <li><a href="#" onclick="showSection('community')">Сообщество</a></li>
+                <li><a href="#" onclick="showSection('news')">Новости</a></li>
+                <li><a href="#" onclick="showSection('shop')">Магазин</a></li>
+            </ul>
+        </nav>
+        <div class="user-section">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Поиск..." onkeyup="searchContent()">
+            </div>
+            <div class="currency">
+                <i class="fas fa-coins"></i>
+                <span id="userCurrency">1250</span>
+            </div>
+            <div class="auth-buttons">
+                <button class="btn btn-outline" onclick="openLoginModal()">Войти</button>
+                <button class="btn btn-primary" onclick="openSignupModal()">Регистрация</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Открой для себя новое аниме</h1>
+                    <p>Присоединяйся к крупнейшему сообществу аниме и манги. Отслеживай свой прогресс, открывай новые сериалы и общайся с единомышленниками со всего мира.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="getStarted()">Начать</button>
+                        <button class="btn btn-outline" onclick="showSection('shop')">Посетить магазин</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h2>Почему выбирают Senkuro?</h2>
+                <p>Наша платформа предлагает всё, что нужно для погружения в мир аниме и манги</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" onclick="showSection('anime')">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Обширная база данных</h3>
+                    <p>Доступ к информации о тысячах аниме и манга серий с подробными описаниями, рейтингами и отзывами.</p>
+                </div>
+                <div class="feature-card" onclick="showSection('community')">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Активное сообщество</h3>
+                    <p>Общайтесь с единомышленниками, участвуйте в обсуждениях и делитесь своими мыслями о последних релизах.</p>
+                </div>
+                <div class="feature-card" onclick="showSection('shop')">
+                    <div class="feature-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Уникальный магазин</h3>
+                    <p>Зарабатывайте валюту и покупайте эксклюзивные аватарки, обои и другие предметы.</p>
+                </div>
+                <div class="feature-card" onclick="showSection('quests')">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Квесты и задания</h3>
+                    <p>Выполняйте задания, чтобы заработать валюту для покупок в магазине.</p>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h2>Популярное на этой неделе</h2>
+                <p>Откройте для себя, что смотрят и читают другие фанаты прямо сейчас</p>
+            </div>
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="https://placehold.co/300x400/1a1a1a/8a2be2?text=Атака+титанов" alt="Атака титанов" class="content-img">
+                    <div class="content-info">
+                        <h4>Атака титанов</h4>
+                        <p>Экшен, Драма</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="https://placehold.co/300x400/1a1a1a/8a2be2?text=Демон+Slayer" alt="Демон Slayer" class="content-img">
+                    <div class="content-info">
+                        <h4>Демон Slayer</h4>
+                        <p>Экшен, Сверхъестественное</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="https://placehold.co/300x400/1a1a1a/8a2be2?text=Изумрудная+магия" alt="Изумрудная магия" class="content-img">
+                    <div class="content-info">
+                        <h4>Изумрудная магия</h4>
+                        <p>Экшен, Школа</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="https://placehold.co/300x400/1a1a1a/8a2be2?text=Моя+геройская+академия" alt="Моя геройская академия" class="content-img">
+                    <div class="content-info">
+                        <h4>Моя геройская академия</h4>
+                        <p>Экшен, Школа</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Anime Section -->
+        <section id="anime" class="section">
+            <div class="section-title">
+                <h2>Аниме</h2>
+                <p>Откройте для себя лучшие аниме сериалы</p>
+            </div>
+            <div class="content-grid" id="animeGrid">
+                <!-- Anime content will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Manga Section -->
+        <section id="manga" class="section">
+            <div class="section-title">
+                <h2>Манга</h2>
+                <p>Читайте лучшие манга серии</p>
+            </div>
+            <div class="content-grid" id="mangaGrid">
+                <!-- Manga content will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="section">
+            <div class="section-title">
+                <h2>Сообщество</h2>
+                <p>Общайтесь с единомышленниками</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Форумы</h3>
+                    <p>Обсуждайте любимые сериалы и делитесь мнениями</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Группы</h3>
+                    <p>Создавайте и присоединяйтесь к группам по интересам</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Рейтинги</h3>
+                    <p>Оценивайте и рекомендуйте лучшие тайтлы</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <h3>События</h3>
+                    <p>Участвуйте в мероприятиях сообщества</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="section">
+            <div class="section-title">
+                <h2>Новости</h2>
+                <p>Последние новости из мира аниме и манги</p>
+            </div>
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="https://placehold.co/300x400/1a1a1a/8a2be2?text=Новость+1" alt="Новость" class="content-img">
+                    <div class="content-info">
+                        <h4>Новый сезон атаки титанов</h4>
+                        <p>Анонсирован финальный сезон</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="https://placehold.co/300x400/1a1a1a/8a2be2?text=Новость+2" alt="Новость" class="content-img">
+                    <div class="content-info">
+                        <h4>Фестиваль аниме 2023</h4>
+                        <p>Даты и участники мероприятия</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="https://placehold.co/300x400/1a1a1a/8a2be2?text=Новость+3" alt="Новость" class="content-img">
+                    <div class="content-info">
+                        <h4>Новая манга от Хаяо Миядзаки</h4>
+                        <p>Анонсирован новый проект</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="https://placehold.co/300x400/1a1a1a/8a2be2?text=Новость+4" alt="Новость" class="content-img">
+                    <div class="content-info">
+                        <h4>Студия Bones получает награду</h4>
+                        <p>Признание за выдающийся вклад</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop Section -->
+        <section id="shop" class="section">
+            <div class="section-title">
+                <h2>Магазин</h2>
+                <p>Покупайте эксклюзивные предметы за валюту сайта</p>
+            </div>
+            <div class="shop-grid" id="shopGrid">
+                <!-- Shop items will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Quests Section -->
+        <section id="quests" class="section">
+            <div class="section-title">
+                <h2>Квесты и задания</h2>
+                <p>Выполняйте задания, чтобы заработать валюту</p>
+            </div>
+            <div class="quests-grid">
+                <div class="quest-card">
+                    <h4>Просмотрите 5 аниме</h4>
+                    <p>Посмотрите 5 разных аниме сериалов и оставьте оценку каждому</p>
+                    <div class="quest-reward">
+                        <i class="fas fa-coins"></i>
+                        <span>100 монет</span>
+                    </div>
+                    <button class="quest-btn" onclick="completeQuest(100)">Выполнить</button>
+                </div>
+                <div class="quest-card">
+                    <h4>Прочитайте 3 главы манги</h4>
+                    <p>Прочитайте 3 главы из разных манга серий</p>
+                    <div class="quest-reward">
+                        <i class="fas fa-coins"></i>
+                        <span>75 монет</span>
+                    </div>
+                    <button class="quest-btn" onclick="completeQuest(75)">Выполнить</button>
+                </div>
+                <div class="quest-card">
+                    <h4>Оставьте 10 комментариев</h4>
+                    <p>Примите участие в обсуждениях сообщества</p>
+                    <div class="quest-reward">
+                        <i class="fas fa-coins"></i>
+                        <span>50 монет</span>
+                    </div>
+                    <button class="quest-btn" onclick="completeQuest(50)">Выполнить</button>
+                </div>
+                <div class="quest-card">
+                    <h4>Поделитесь 3 постами</h4>
+                    <p>Поделитесь 3 интересными постами в социальных сетях</p>
+                    <div class="quest-reward">
+                        <i class="fas fa-coins"></i>
+                        <span>60 монет</span>
+                    </div>
+                    <button class="quest-btn" onclick="completeQuest(60)">Выполнить</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center;">
+        <div class="modal-content" style="background-color: var(--dark); border-radius: 15px; width: 90%; max-width: 400px; padding: 2rem; position: relative; border: 1px solid var(--primary);">
+            <span class="close" onclick="closeModal('loginModal')" style="position: absolute; top: 15px; right: 15px; font-size: 1.5rem; cursor: pointer; color: #aaa;">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--light);">Вход в аккаунт</h2>
+            <form id="loginForm">
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="loginEmail" style="display: block; margin-bottom: 0.5rem; color: #aaa;">Email</label>
+                    <input type="email" id="loginEmail" required style="width: 100%; padding: 0.8rem; border-radius: 5px; border: 1px solid var(--gray); background-color: var(--darker); color: var(--light); font-size: 1rem;">
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="loginPassword" style="display: block; margin-bottom: 0.5rem; color: #aaa;">Пароль</label>
+                    <input type="password" id="loginPassword" required style="width: 100%; padding: 0.8rem; border-radius: 5px; border: 1px solid var(--gray); background-color: var(--darker); color: var(--light); font-size: 1rem;">
+                </div>
+                <button type="submit" class="modal-btn" style="width: 100%; padding: 0.8rem; border-radius: 5px; border: none; background-color: var(--primary); color: var(--light); font-size: 1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s;">Войти</button>
+            </form>
+            <div class="switch-form" style="text-align: center; margin-top: 1rem; color: #aaa;">
+                Нет аккаунта? <a onclick="switchToSignup()" style="color: var(--primary); text-decoration: none; cursor: pointer;">Зарегистрироваться</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center;">
+        <div class="modal-content" style="background-color: var(--dark); border-radius: 15px; width: 90%; max-width: 400px; padding: 2rem; position: relative; border: 1px solid var(--primary);">
+            <span class="close" onclick="closeModal('signupModal')" style="position: absolute; top: 15px; right: 15px; font-size: 1.5rem; cursor: pointer; color: #aaa;">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--light);">Регистрация</h2>
+            <form id="signupForm">
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="signupName" style="display: block; margin-bottom: 0.5rem; color: #aaa;">Имя</label>
+                    <input type="text" id="signupName" required style="width: 100%; padding: 0.8rem; border-radius: 5px; border: 1px solid var(--gray); background-color: var(--darker); color: var(--light); font-size: 1rem;">
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="signupEmail" style="display: block; margin-bottom: 0.5rem; color: #aaa;">Email</label>
+                    <input type="email" id="signupEmail" required style="width: 100%; padding: 0.8rem; border-radius: 5px; border: 1px solid var(--gray); background-color: var(--darker); color: var(--light); font-size: 1rem;">
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="signupPassword" style="display: block; margin-bottom: 0.5rem; color: #aaa;">Пароль</label>
+                    <input type="password" id="signupPassword" required style="width: 100%; padding: 0.8rem; border-radius: 5px; border: 1px solid var(--gray); background-color: var(--darker); color: var(--light); font-size: 1rem;">
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="signupConfirmPassword" style="display: block; margin-bottom: 0.5rem; color: #aaa;">Подтвердите пароль</label>
+                    <input type="password" id="signupConfirmPassword" required style="width: 100%; padding: 0.8rem; border-radius: 5px; border: 1px solid var(--gray); background-color: var(--darker); color: var(--light); font-size: 1rem;">
+                </div>
+                <button type="submit" class="modal-btn" style="width: 100%; padding: 0.8rem; border-radius: 5px; border: none; background-color: var(--primary); color: var(--light); font-size: 1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s;">Зарегистрироваться</button>
+            </form>
+            <div class="switch-form" style="text-align: center; margin-top: 1rem; color: #aaa;">
+                Уже есть аккаунт? <a onclick="switchToLogin()" style="color: var(--primary); text-decoration: none; cursor: pointer;">Войти</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Senkuro</h3>
+                <p>Ваш конечный пункт назначения для аниме и манги. Открывайте, отслеживайте и общайтесь с единомышленниками.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="#" onclick="showSection('home')">Главная</a></li>
+                    <li><a href="#" onclick="showSection('anime')">Аниме</a></li>
+                    <li><a href="#" onclick="showSection('manga')">Манга</a></li>
+                    <li><a href="#" onclick="showSection('community')">Сообщество</a></li>
+                    <li><a href="#" onclick="showSection('news')">Новости</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Правовая информация</h3>
+                <ul>
+                    <li><a href="#">Условия использования</a></li>
+                    <li><a href="#">Политика конфиденциальности</a></li>
+                    <li><a href="#">Политика cookie</a></li>
+                    <li><a href="#">Авторские права</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Поддержка</h3>
+                <ul>
+                    <li><a href="#">Центр помощи</a></li>
+                    <li><a href="#">Связаться с нами</a></li>
+                    <li><a href="#">Часто задаваемые вопросы</a></li>
+                    <li><a href="#">Сообщить о проблеме</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Senkuro. Все права защищены. Это демонстрационный сайт в образовательных целях.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Данные для контента
+        const animeData = [
+            { title: "Атака титанов", genre: "Экшен, Драма", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Атака+титанов" },
+            { title: "Демон Slayer", genre: "Экшен, Сверхъестественное", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Демон+Slayer" },
+            { title: "Изумрудная магия", genre: "Экшен, Школа", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Изумрудная+магия" },
+            { title: "Моя геройская академия", genre: "Экшен, Школа", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Моя+геройская+академия" },
+            { title: "Ван Пис", genre: "Экшен, Приключения", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Ван+Пис" },
+            { title: "Наруто", genre: "Экшен, Приключения", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Наруто" },
+            { title: "Клинок, рассекающий демонов", genre: "Экшен, Сверхъестественное", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Клинок+демонов" },
+            { title: "Человек-бензопила", genre: "Экшен, Комедия", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Человек+бензопила" }
+        ];
+
+        const mangaData = [
+            { title: "Берсерк", genre: "Темное фэнтези, Сэйнэн", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Берсерк" },
+            { title: "Винланд Сага", genre: "Историческое, Сэйнэн", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Винланд+Сага" },
+            { title: "Джоджо", genre: "Экшен, Сверхъестественное", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Джоджо" },
+            { title: "Клинок, рассекающий демонов", genre: "Экшен, Сверхъестественное", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Клинок+демонов" },
+            { title: "Мастер Меча Онлайн", genre: "Игровое фэнтези, Романтика", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Мастер+меча" },
+            { title: "Человек-бензопила", genre: "Экшен, Комедия", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Человек+бензопила" },
+            { title: "Атака титанов", genre: "Экшен, Драма", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Атака+титанов" },
+            { title: "Демон Slayer", genre: "Экшен, Сверхъестественное", image: "https://placehold.co/300x400/1a1a1a/8a2be2?text=Демон+Slayer" }
+        ];
+
+        const shopItems = [
+            { id: 1, name: "Аватар Наруто", price: 150, image: "https://placehold.co/200x150/1a1a1a/8a2be2?text=Аватар+Наруто" },
+            { id: 2, name: "Обои Атака Титанов", price: 200, image: "https://placehold.co/200x150/1a1a1a/8a2be2?text=Обои+Атака" },
+            { id: 3, name: "Рамка Демон Слейер", price: 100, image: "https://placehold.co/200x150/1a1a1a/8a2be2?text=Рамка+Демон" },
+            { id: 4, name: "Баннер Моя Геройская Академия", price: 250, image: "https://placehold.co/200x150/1a1a1a/8a2be2?text=Баннер+Герой" },
+            { id: 5, name: "Стикерпак Джоджо", price: 75, image: "https://placehold.co/200x150/1a1a1a/8a2be2?text=Стикерпак+Джоджо" },
+            { id: 6, name: "Аватар Ван Пис", price: 120, image: "https://placehold.co/200x150/1a1a1a/8a2be2?text=Аватар+Ван+Пис" },
+            { id: 7, name: "Обои Клинок Демонов", price: 180, image: "https://placehold.co/200x150/1a1a1a/8a2be2?text=Обои+Клинок" },
+            { id: 8, name: "Рамка Человек Бензопила", price: 90, image: "https://placehold.co/200x150/1a1a1a/8a2be2?text=Рамка+Бензопила" }
+        ];
+
+        // Переменные состояния
+        let currentSection = 'home';
+        let userCurrency = 1250;
+
+        // Функции навигации
+        function showSection(sectionId) {
+            // Скрыть все секции
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Показать выбранную секцию
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Обновить активную ссылку в навигации
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Найти и активировать ссылку для текущей секции
+            const links = document.querySelectorAll('nav ul li a');
+            for (let link of links) {
+                if (link.textContent.toLowerCase() === sectionId.toLowerCase() || 
+                    (sectionId === 'home' && link.textContent === 'Главная')) {
+                    link.classList.add('active');
+                    break;
+                }
+            }
+            
+            currentSection = sectionId;
+            
+            // Заполнить контент для секций, если они пустые
+            if (sectionId === 'anime' && document.getElementById('animeGrid').children.length === 0) {
+                populateAnimeGrid();
+            }
+            
+            if (sectionId === 'manga' && document.getElementById('mangaGrid').children.length === 0) {
+                populateMangaGrid();
+            }
+            
+            if (sectionId === 'shop' && document.getElementById('shopGrid').children.length === 0) {
+                populateShopGrid();
+            }
+        }
+
+        // Функции для заполнения контента
+        function populateAnimeGrid() {
+            const grid = document.getElementById('animeGrid');
+            grid.innerHTML = '';
+            
+            animeData.forEach(item => {
+                const contentCard = document.createElement('div');
+                contentCard.className = 'content-card';
+                contentCard.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="content-img">
+                    <div class="content-info">
+                        <h4>${item.title}</h4>
+                        <p>${item.genre}</p>
+                    </div>
+                `;
+                grid.appendChild(contentCard);
+            });
+        }
+
+        function populateMangaGrid() {
+            const grid = document.getElementById('mangaGrid');
+            grid.innerHTML = '';
+            
+            mangaData.forEach(item => {
+                const contentCard = document.createElement('div');
+                contentCard.className = 'content-card';
+                contentCard.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="content-img">
+                    <div class="content-info">
+                        <h4>${item.title}</h4>
+                        <p>${item.genre}</p>
+                    </div>
+                `;
+                grid.appendChild(contentCard);
+            });
+        }
+
+        function populateShopGrid() {
+            const grid = document.getElementById('shopGrid');
+            grid.innerHTML = '';
+            
+            shopItems.forEach(item => {
+                const shopItem = document.createElement('div');
+                shopItem.className = 'shop-item';
+                shopItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="shop-img">
+                    <div class="shop-info">
+                        <h4>${item.name}</h4>
+                        <div class="shop-price">
+                            <i class="fas fa-coins"></i>
+                            <span>${item.price}</span>
+                        </div>
+                        <button class="shop-btn" onclick="buyItem(${item.id}, ${item.price})" ${userCurrency < item.price ? 'disabled' : ''}>Купить</button>
+                    </div>
+                `;
+                grid.appendChild(shopItem);
+            });
+        }
+
+        // Функции для модальных окон
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+
+        function openSignupModal() {
+            document.getElementById('signupModal').style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function switchToSignup() {
+            closeModal('loginModal');
+            openSignupModal();
+        }
+
+        function switchToLogin() {
+            closeModal('signupModal');
+            openLoginModal();
+        }
+
+        // Закрытие модального окна при клике вне его
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Функции для кнопок
+        function getStarted() {
+            alert('Добро пожаловать в Senkuro!');
+        }
+
+        // Функции магазина
+        function buyItem(itemId, price) {
+            if (userCurrency >= price) {
+                userCurrency -= price;
+                document.getElementById('userCurrency').textContent = userCurrency;
+                alert(`Поздравляем! Вы купили предмет за ${price} монет.`);
+                populateShopGrid(); // Обновить кнопки покупки
+            } else {
+                alert('Недостаточно монет для покупки!');
+            }
+        }
+
+        // Функции квестов
+        function completeQuest(reward) {
+            userCurrency += reward;
+            document.getElementById('userCurrency').textContent = userCurrency;
+            alert(`Поздравляем! Вы получили ${reward} монет.`);
+        }
+
+        // Функция поиска
+        function searchContent() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            if (searchTerm.length < 2) {
+                if (currentSection === 'anime') populateAnimeGrid();
+                if (currentSection === 'manga') populateMangaGrid();
+                return;
+            }
+            
+            if (currentSection === 'anime') {
+                const filteredAnime = animeData.filter(item => 
+                    item.title.toLowerCase().includes(searchTerm) || 
+                    item.genre.toLowerCase().includes(searchTerm)
+                );
+                
+                const grid = document.getElementById('animeGrid');
+                grid.innerHTML = '';
+                
+                filteredAnime.forEach(item => {
+                    const contentCard = document.createElement('div');
+                    contentCard.className = 'content-card';
+                    contentCard.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}" class="content-img">
+                        <div class="content-info">
+                            <h4>${item.title}</h4>
+                            <p>${item.genre}</p>
+                        </div>
+                    `;
+                    grid.appendChild(contentCard);
+                });
+            }
+            
+            if (currentSection === 'manga') {
+                const filteredManga = mangaData.filter(item => 
+                    item.title.toLowerCase().includes(searchTerm) || 
+                    item.genre.toLowerCase().includes(searchTerm)
+                );
+                
+                const grid = document.getElementById('mangaGrid');
+                grid.innerHTML = '';
+                
+                filteredManga.forEach(item => {
+                    const contentCard = document.createElement('div');
+                    contentCard.className = 'content-card';
+                    contentCard.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}" class="content-img">
+                        <div class="content-info">
+                            <h4>${item.title}</h4>
+                            <p>${item.genre}</p>
+                        </div>
+                    `;
+                    grid.appendChild(contentCard);
+                });
+            }
+        }
+
+        // Обработка форм
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            
+            if (email) {
+                alert(`Успешный вход как ${email}`);
+                closeModal('loginModal');
+            } else {
+                alert('Пожалуйста, заполните все поля');
+            }
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Пароли не совпадают');
+                return;
+            }
+            
+            if (name && email && password) {
+                alert(`Успешная регистрация для ${name} (${email})`);
+                closeModal('signupModal');
+            } else {
+                alert('Пожалуйста, заполните все поля');
+            }
+        });
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function() {
+            // Заполнить начальный контент
+            populateAnimeGrid();
+            populateMangaGrid();
+            populateShopGrid();
+        });
+    </script>
+</body>
+</html>
